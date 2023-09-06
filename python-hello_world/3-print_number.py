@@ -1,3 +1,10 @@
 #!/usr/bin/python3
+# This is a Python scripts that prints an integer followed by:
+# "Battery street"
+# The integer is stored in the variable:
+# "number"
+
+
 number = 98
-print(f'{number:d} Battery street\n')
+message = f'{number} Battery street'
+print(message)
