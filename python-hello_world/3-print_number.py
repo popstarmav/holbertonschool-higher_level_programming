@@ -4,4 +4,4 @@
 # The integer is stored in the variable "number."
 
 number = 98
-print(f'{number:d} Battery street')
+print(number , "Battery", end='\n')
