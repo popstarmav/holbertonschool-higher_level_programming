@@ -2,7 +2,7 @@
 import random
 
 # Generate a random number
-number = random.randint(-100, 100)
+number = random.randint(-10, 10)
 
 if number > 0:
     print(f'The number {number} is positive')
