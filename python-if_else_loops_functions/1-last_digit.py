@@ -7,14 +7,14 @@ number = random.randint(-10000, 10000)
 # Get the last digit of the number
 last_digit = abs(number) % 10
 
-# Determine the message based on the last digit
-if last_digit > 0:
-    message = "negative"
+if number < 0:
+    last_digit = -last_digit
+
+print("Last digit of {} is {} and is ".format(number, last_digit), end="")
+
+if last_digit > 5:
+    print("greater than 5")
 elif last_digit == 0:
-    message = "zero"
+    print("0")
 else:
-    message = "positive"
-
-# Print the final message
-print(f"The string Last digit of {number} is {last_digit} {message}")
-
+    print("less than 6 and not 0")
