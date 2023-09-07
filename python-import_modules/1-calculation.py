@@ -6,12 +6,12 @@ if __name__ == "__main__":
     a = 10
     b = 5
 
-    result_add = add(a, b)
-    result_sub = sub(a, b)
-    result_mul = mul(a, b)
-    result_div = div(a, b)
+    addition_result = add(a, b)
+    subtraction_result = sub(a, b)
+    multiplication_result = mul(a, b)
+    division_result = div(a, b)
 
-    print(f"{a} + {b} = {result_add}")
-    print(f"{a} - {b} = {result_sub}")
-    print(f"{a} * {b} = {result_mul}")
-    print(f"{a} / {b} = {result_div}")
+    print(f"{a} + {b} = {addition_result}")
+    print(f"{a} - {b} = {subtraction_result}")
+    print(f"{a} * {b} = {multiplication_result}")
+    print(f"{a} / {b} = {division_result}")
