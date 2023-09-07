@@ -1,12 +1,15 @@
 #!/usr/bin/python3
 
-# Import the add function from the add_0 module
+# Import the add function from add_0.py
 from add_0 import add
 
-# Assign the values to variables a and b
-a = 1
-b = 2
+if __name__ == "__main__":
+    # Define variables a and b
+    a = 1
+    b = 2
 
-# Perform the addition and print the result using string formatting
-result = add(a, b)
-print("{} + {} = {}".format(a, b, result))
+    # Calculate the result using the add function
+    result = add(a, b)
+
+    # Print the result using string formatting
+    print("{} + {} = {}".format(a, b, result))
