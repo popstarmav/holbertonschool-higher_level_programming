@@ -1,10 +1,12 @@
 #!/usr/bin/python3
 
-if __name__ == "__main__":
-    from add_0 import add
+# Import the add function from the add_0 module
+from add_0 import add
 
-    a = 1
-    b = 2
-    result = add(a, b)
+# Assign the values to variables a and b
+a = 1
+b = 2
 
-    print("{} + {} = {}".format(a, b, result)))
+# Perform the addition and print the result using string formatting
+result = add(a, b)
+print("{} + {} = {}".format(a, b, result))
