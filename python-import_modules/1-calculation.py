@@ -10,8 +10,6 @@ if __name__ == "__main__":
     sub_result = sub(a, b)
     mul_result = mul(a, b)
     div_result = div(a, b)
-
-    print(f"{a} + {b} = {add_result}")
-    print(f"{a} - {b} = {sub_result}")
-    print(f"{a} * {b} = {mul_result}")
-    print(f"{a} / {b} = {div_result}")
+    
+    print(f"{a} + {b} = {add_result}"'\n', f"{a} - {b} = {sub_result}"'\n',
+          f"{a} * {b} = {mul_result}"'\n', f"{a} / {b} = {div_result}")
