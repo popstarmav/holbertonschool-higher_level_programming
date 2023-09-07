@@ -1,1 +1,3 @@
-__import__("0-add")
+#!/usr/bin/python3
+
+import add_0
