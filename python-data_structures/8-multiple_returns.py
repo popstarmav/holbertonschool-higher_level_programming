@@ -1,7 +1,7 @@
 #!/usr/bin/pythpn3
 
 def multiple_returns(sentence):
-    if sentence == "":
-        return (0, None)
-    else:
+    if len(sentence) > 0:
         return (len(sentence), sentence[0])
+    else:
+        return (0, None)
