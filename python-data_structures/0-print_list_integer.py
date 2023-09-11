@@ -1,6 +1,7 @@
 #!/usr/bin/python3
-# 0-print_list_integer.py
 
 def print_list_integer(my_list=[]):
-    for i in range(len(my_list)):
-        print("{}".format(my_list))
+    # Print all integers of a list.
+    for nun in my_list:
+        if isinstance(nun, int):
+            print("{:d}".format(nun))
