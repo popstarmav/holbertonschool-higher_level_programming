@@ -1,7 +1,8 @@
 #!/usr/bin/python3
 
 def print_list_integer(my_list=[]):
-    # Print all integers of a list.
-    for nun in my_list:
-        if isinstance(nun, int):
-            print("{:d}".format(nun))
+    for num in my_list:
+        if isinstance(num, int):  # Check if the element is an integer
+            print("{:d}".format(num))
+        else:
+            raise TypeError("List should only contain integers")
