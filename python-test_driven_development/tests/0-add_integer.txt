@@ -1,0 +1,13 @@
+def add_integer(a, b=98):
+    # Your code here
+    pass
+
+if __name__ == "__main__":
+    with open("tests/0-add_integer.txt", "r") as test_file:
+        for line in test_file:
+            a, b, expected_result = map(int, line.split())
+            result = add_integer(a, b)
+            if result == expected_result:
+                print(f"Test passed: {a} + {b} = {result}")
+            else:
+                print(f"Test failed: {a} + {b} = {result}, expected {expected_result}")
