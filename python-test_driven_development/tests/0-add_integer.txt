@@ -1,46 +1,49 @@
-def test_add_integer():
-    """
-    Test the add_integer function.
-    """
-    # Test present: regular addition
-    assert add_integer(1, 2) == 3
+# 0-add_integer_test.py
 
-    # Test present: regular addition
-    assert add_integer(100, -2) == 98
+"""
+This file provides usage examples and test cases for the `add_integer` function.
+"""
 
-    # Test present: integer casting
-    assert add_integer(2) == 100
+# Importing the `add_integer` function for testing
+>>> add_integer = __import__('0-add_integer').add_integer
 
-    # Test present: Float overflow
-    assert add_integer(100.3, -2) == 98
+# Example 1: Basic Usage
+>>> add_integer(1, 2)
+Expected Output: 3
 
-    # Test present: check type
-    try:
-        add_integer(4, "School")
-    except Exception as e:
-        assert str(e) == "a must be an integer"
+# Example 2: Negative Input
+>>> add_integer(100, -2)
+Expected Output: 98
 
-    # Test present: check type
-    try:
-        add_integer(None)
-    except Exception as e:
-        assert str(e) == "a must be an integer"
+# Example 3: Single Input (default `b` to 98)
+>>> add_integer(2)
+Expected Output: 100
 
-    # Test present: missing one argument
-    # Note: You can add a specific test case here if needed
+# Example 4: Float and Negative Input
+>>> add_integer(100.3, -2)
+Expected Output: 98
 
-    # Test present: missing two arguments
-    # Note: You can add a specific test case here if needed
+# Example 5: Float Overflow
+>>> add_integer(1500.5)
+Expected Output: 1598
 
-    # Test the module docstring
-    module_docstring = __import__("0-add_integer").__doc__.strip()
-    assert module_docstring == "Adds two integers."
+# Example 6: Float NaN (Expecting ValueError)
+>>> add_integer(float('NaN'))
+Expected Error: ValueError (cannot convert float NaN to integer)
 
-    # Test the function docstring
-    function_docstring = __import__("0-add_integer").add_integer.__doc__.strip()
-    assert function_docstring == "Adds two integers."
+# Example 7: String Input (Expecting TypeError)
+>>> add_integer(4, "School")
+Expected Error: TypeError (b must be an integer)
 
-if __name__ == "__main__":
-    test_add_integer()
-    print("All tests passed!")
+# Example 8: None Input (Expecting TypeError)
+>>> add_integer(None)
+Expected Error: TypeError (a must be an integer)
+
+# Example 9: Double Negative Float Input
+>>> add_integer(-100.5, -10.8)
+Expected Output: -110
+
+# Example 10: Double String Input (Expecting TypeError)
+>>> add_integer("holberton", "school")
+Expected Error: TypeError (a must be an integer)
 
