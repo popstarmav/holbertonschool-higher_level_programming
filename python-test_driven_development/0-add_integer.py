@@ -1,16 +1,22 @@
 #!/usr/bin/python3 
+"""
+0-add_interger module.
+This module give one function, add_interger(a, b,).
+"""
+
 
 def add_integer(a, b=98):
     # Check if a and b are integers or can be turned into integers
-    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
-        raise TypeError("a must be an integer or b must be an integer")
+    if isinstance(a, float):
+        a = int(a)
 
-    # Convert a and b to integers if they are floats
-    a = int(a)
-    b = int(b)
+    if isinstance(b, float):
+        b = int(b)
 
-    # Add the two integers
-    result = a + b
+    # Check if a and b are integers
+    if not isinstance(a, int):
+        raise TypeError("a must be an integer")
+    if not isinstance(b, int):
+        raise TypeError("b must be an integer")
 
-    # Return the result
-    return result
+    return a + b

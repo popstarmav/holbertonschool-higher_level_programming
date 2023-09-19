@@ -1,13 +1,28 @@
-def add_integer(a, b=98):
-    # Your code here
-    pass
+def test_add_integer():
+    """
+    Test the add_integer function.
+    """
+    # Test cases
+    assert add_integer(1, 2) == 3
+    assert add_integer(100, -2) == 98
+    assert add_integer(2) == 100
+    assert add_integer(100.3, -2) == 98
+
+    # Test cases with invalid input
+    try:
+        add_integer(4, "School")
+    except Exception as e:
+        assert str(e) == "a must be an integer"
+
+    try:
+        add_integer(None)
+    except Exception as e:
+        assert str(e) == "a must be an integer"
+
+    # Test the docstring
+    docstring_lines = __import__("0-add_integer").add_integer.__doc__.strip().splitlines()
+    assert len(docstring_lines) == 3
 
 if __name__ == "__main__":
-    with open("tests/0-add_integer.txt", "r") as test_file:
-        for line in test_file:
-            a, b, expected_result = map(int, line.split())
-            result = add_integer(a, b)
-            if result == expected_result:
-                print(f"Test passed: {a} + {b} = {result}")
-            else:
-                print(f"Test failed: {a} + {b} = {result}, expected {expected_result}")
+    test_add_integer()
+    print("All tests passed!")
