@@ -1,16 +1,19 @@
 #!/usr/bin/python3
 
-"""
-This is a Python module for handling rectangles.
-
-This module defines a basic Rectangle class to represent rectangles.
-"""
-
 class Rectangle:
-    """
-    A class to represent rectangles.
+    def __init__(self, width=0, height=0):
+        self.width = width
+        self.height = height
 
-    This class provides a basic structure to work with rectangles.
-    It does not contain any specific attributes or methods yet.
-    """
-    pass
+    def area(self):
+        """Calculate the area of the rectangle."""
+        return self.width * self.height
+
+    def perimeter(self):
+        """Calculate the perimeter of the rectangle."""
+        return 2 * (self.width + self.height)
+
+    def __str__(self):
+        """Return a string representation of the rectangle."""
+        return f"Rectangle (width={self.width}, height={self.height})"
+
