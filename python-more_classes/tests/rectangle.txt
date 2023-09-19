@@ -1,0 +1,13 @@
+# Rectangle Class
+
+This is an empty class representing a rectangle.
+
+## Usage Example
+
+Let's create a `Rectangle` object and check its type:
+
+```python
+>>> from rectangle import Rectangle
+>>> r = Rectangle()
+>>> type(r)
+<class 'rectangle.Rectangle'
