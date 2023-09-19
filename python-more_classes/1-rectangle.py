@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-rectangele moudle based on 0-rectangle.py
+rectangele module based on 0-rectangle.py
 """
 
 class Rectangle:
