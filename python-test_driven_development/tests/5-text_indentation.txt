@@ -1,0 +1,33 @@
+# Import the text_indentation function
+>>> from text_indentation import text_indentation
+
+# Basic usage
+>>> text = """
+... Lorem ipsum dolor sit amet, consectetur adipiscing elit. \
+... Quonam modo? Utrum igitur tibi litteram videor an totas paginas commovere? \
+... Non autem hoc: igitur ne illud quidem. Fortasse id optimum, sed ubi illud: \
+... Plus semper voluptatis? Teneo, inquit, finem illi videri nihil dolere. \
+... Transfer idem ad modestiam vel temperantiam, quae est moderatio cupiditatum \
+... rationi oboediens. Si id dicis, vicimus. Inde sermone vario sex illa a Dipylo \
+... stadia confecimus. Sin aliud quid voles, postea. Quae animi affectio suum \
+... cuique tribuens atque hanc, quam dico. Utinam quidem dicerent alium alio \
+... beatiorem! Iam ruinas videres
+... """
+>>> text_indentation(text)
+# Expected output with blank lines between sentences
+
+# Non-string input
+>>> text_indentation(3)
+# Expected TypeError: text must be a string
+
+# No special characters in string input
+>>> text_indentation("hello")
+# Expected output: "hello"
+
+# QA case
+>>> text_indentation("Holberton. School? How are you: John")
+# Expected output with blank lines between sentences
+
+# No input
+>>> text_indentation()
+# Expected TypeError: text_indentation() missing 1 required positional argument: 'text'
