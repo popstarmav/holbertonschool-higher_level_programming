@@ -2,27 +2,45 @@ def test_add_integer():
     """
     Test the add_integer function.
     """
-    # Test cases
+    # Test present: regular addition
     assert add_integer(1, 2) == 3
+
+    # Test present: regular addition
     assert add_integer(100, -2) == 98
+
+    # Test present: integer casting
     assert add_integer(2) == 100
+
+    # Test present: Float overflow
     assert add_integer(100.3, -2) == 98
 
-    # Test cases with invalid input
+    # Test present: check type
     try:
         add_integer(4, "School")
     except Exception as e:
         assert str(e) == "a must be an integer"
 
+    # Test present: check type
     try:
         add_integer(None)
     except Exception as e:
         assert str(e) == "a must be an integer"
 
-    # Test the docstring
-    docstring_lines = __import__("0-add_integer").add_integer.__doc__.strip().splitlines()
-    assert len(docstring_lines) == 3
+    # Test present: missing one argument
+    # Note: You can add a specific test case here if needed
+
+    # Test present: missing two arguments
+    # Note: You can add a specific test case here if needed
+
+    # Test the module docstring
+    module_docstring = __import__("0-add_integer").__doc__.strip()
+    assert module_docstring == "Adds two integers."
+
+    # Test the function docstring
+    function_docstring = __import__("0-add_integer").add_integer.__doc__.strip()
+    assert function_docstring == "Adds two integers."
 
 if __name__ == "__main__":
     test_add_integer()
     print("All tests passed!")
+

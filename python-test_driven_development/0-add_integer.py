@@ -1,12 +1,15 @@
 #!/usr/bin/python3 
 """
 0-add_interger module.
-This module give one function, add_interger(a, b,).
+This module give one function add_interger(a, b,).
+check if paremeters are int
 """
 
 
 def add_integer(a, b=98):
-    # Check if a and b are integers or can be turned into integers
+    """
+    Check if a and b are integers or can be turned into integers
+    """
     if isinstance(a, float):
         a = int(a)
 
