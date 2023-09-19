@@ -5,6 +5,5 @@ Rectangle module
 
 
 class Rectangle:
-    def __int__(self):
-    """define variables and methods"""
+    """An empty class that defines a rectangle."""
     pass
