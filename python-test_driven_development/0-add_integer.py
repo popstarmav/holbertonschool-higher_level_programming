@@ -1,3 +1,5 @@
+#!/usr/bin/python3 
+
 def add_integer(a, b=98):
     # Check if a and b are integers or can be turned into integers
     if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
