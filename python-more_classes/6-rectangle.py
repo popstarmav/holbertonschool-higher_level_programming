@@ -1,11 +1,14 @@
 #!/usr/bin/python3
 """
-Defines a rectangle based by 5-rex
+Define the rectangle based on 5-rec
 """
+
 class Rectangle:
     number_of_instances = 0
 
     def __init__(self, width=0, height=0):
+        self.__width = 0
+        self.__height = 0
         self.width = width
         self.height = height
         Rectangle.number_of_instances += 1
@@ -51,6 +54,6 @@ class Rectangle:
         return f"Rectangle({self.__width}, {self.__height})"
 
     def __del__(self):
-        print("Bye rectangle...")
         Rectangle.number_of_instances -= 1
+        print("Bye rectangle...")
 
