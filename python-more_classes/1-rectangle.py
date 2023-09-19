@@ -1,6 +1,11 @@
 #!/usr/bin/python3
+"""
+rectangele moudle based on 0-rectangle.py
+"""
 
 class Rectangle:
+    """define varibales and methods"""
+
     def __init__(self, width=0, height=0):
         self.__width = 0
         self.__height = 0
