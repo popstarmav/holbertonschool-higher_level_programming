@@ -1,5 +1,7 @@
 #!/usr/bin/python3
-
+"""
+Defines a rectangle based by 5-rex
+"""
 class Rectangle:
     number_of_instances = 0
 
