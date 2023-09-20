@@ -1,22 +1,27 @@
-#!/usr/bib/python3
+#!/usr/bin/python3
 """
-Defines a square based on 0-square
+Defines square based on 0-squ
 """
 
 class Square:
-    """ defines varibales and methods """
+    """ define variables and square """
     def __init__(self, size):
-        self.__size = size  # Private attribute prefixed with double underscore
+        if type(size) == int:
+            self.__size = size  # Private attribute 
+        else:
+            raise TypeError("Size must be an integer")
 
     def get_size(self):
         return self.__size
 
     def set_size(self, size):
-        if size >= 0:
-            self.__size = size
+        if type(size) == int:
+            if size >= 0:
+                self.__size = size
+            else:
+                raise ValueError("Size cannot be negative")
         else:
-            raise ValueError("Size cannot be negative")
+            raise TypeError("Size must be an integer")
 
     def area(self):
         return self.__size * self.__size
-
