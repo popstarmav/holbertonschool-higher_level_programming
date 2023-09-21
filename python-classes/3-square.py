@@ -2,8 +2,11 @@
 """
 Defines square based by 2-square
 """
+
+
 class Square:
     """defines variables and method"""
+
     def __init__(self, size=0):
         if not isinstance(size, int):
             raise TypeError("size must be an integer")
