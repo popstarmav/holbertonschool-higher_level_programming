@@ -1,1 +1,1 @@
-the function "type" is the way to print without "()"
+"type" is the way to print without "()"
