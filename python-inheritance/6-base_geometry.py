@@ -1,9 +1,10 @@
 #!/usr/bin/pyhton3
+"""Base geometry class BaseGeometry."""
+
+
 class BaseGeometry:
-    """Class of BaseGeometry"""
+    """Represent base geometry."""
 
     def area(self):
-        """
-        Raises an exception with the message
-        """
+        """Raise expetion with a message"""
         raise Exception("area() is not implemented")
