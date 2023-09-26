@@ -5,13 +5,13 @@ Function print true or false
 
 
 def inherits_from(obj, a_class):
-    """Check if the object is an instance of a subclass of a_class.
+    """Confirm if the object belongs to a specified class
 
     Args:
         obj: The object to check.
-        a_class: The class to compare against.
+        a_class: compare the specified.
 
     Returns:
-        True if obj is an instance of a subclass, False otherwise.
+        True if obj is a subclass instance, False otherwise.
     """
     return issubclass(type(obj), a_class) and type(obj) != a_class
