@@ -1,5 +1,7 @@
 #!/usr/bin/pyhton3
-"""Base geometry class BaseGeometry."""
+"""
+Base geometry class BaseGeometry.
+"""
 
 
 class BaseGeometry:
