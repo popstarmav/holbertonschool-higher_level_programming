@@ -5,8 +5,8 @@ BaseGeometry base on 5-base_goe
 
 
 class BaseGeometry:
-    """ class area """
+    """BaseGeometry class with a public method"""
     def area(self)
-        """rasie exception"""
+        """rasie exception with a message"""
         raise Exception("area() is not implemented")
 
