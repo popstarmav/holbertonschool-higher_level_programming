@@ -3,7 +3,7 @@
 
 
 class BaseGeometry:
-    """Represent base geometry."""
+    """Public instance method"""
 
     def area(self):
         """Raise expetion with a message"""
