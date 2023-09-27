@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-function that reads a text file (UTF8) and 
+function that reads a text file (UTF8) and
 prints it to stdout
 """
 
@@ -12,4 +12,4 @@ def read_file(filename=""):
             for line in file:
                 print(line, end='')
     except FileNotFoundError:
-        pass
+        print(f"File '{filename}' not found.")
