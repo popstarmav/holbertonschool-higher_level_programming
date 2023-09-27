@@ -1,25 +1,15 @@
-#!/usr/bin/python3 
-"""
-0-add_interger module.
-This module give one function add_interger(a, b,).
-check if paremeters are int
-"""
-
-
 def add_integer(a, b=98):
-    """
-    Check if a and b are integers or can be turned into integers
-    """
-    if isinstance(a, float):
-        a = int(a)
+    # Check if a and b are integers or can be turned into integers
+    if not isinstance(a, (int, float)) or not isinstance(b, (int, float)):
+        raise TypeError("a must be an integer or b must be an integer")
 
-    if isinstance(b, float):
-        b = int(b)
+    # Convert a and b to integers if they are floats
+    a = int(a)
+    b = int(b)
 
-    # Check if a and b are integers
-    if not isinstance(a, int):
-        raise TypeError("a must be an integer")
-    if not isinstance(b, int):
-        raise TypeError("b must be an integer")
+    # Add the two integers
+    result = a + b
 
-    return a + b
+    # Return the result
+    result = add_integer(5, 7)  # Example usage
+    print(result)  # Print the result to the console

@@ -4,7 +4,7 @@ Defines square based on 0-squ
 """
 
 class Square:
-    """ define variables and square """
+    """define varibales and methods"""
     def __init__(self, size):
         if type(size) == int:
             self.__size = size  # Private attribute 
