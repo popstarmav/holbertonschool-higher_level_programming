@@ -5,5 +5,7 @@ Attributes lookup function
 
 
 def lookup(obj):
-    """returna list of available attributes and methods pf an object"""
-    return [dir(obj)]
+    """
+    retrun a list of attribute and method names
+    """
+    return dir(obj)
