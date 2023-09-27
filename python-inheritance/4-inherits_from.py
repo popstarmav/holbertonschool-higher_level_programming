@@ -1,17 +1,18 @@
-#!/usr/bin/pyhton3
+#!/usr/bin/python3
 """
-Function print true or false
+Function that returns True or False
 """
 
 
 def inherits_from(obj, a_class):
-    """Confirm if the object belongs to a specified class
+    """
+    Confirm if the object belongs to a specified class or its subclasses.
 
     Args:
         obj: The object to check.
-        a_class: compare the specified.
+        a_class: The class to compare against.
 
     Returns:
-        True if obj is a subclass instance, False otherwise.
+        True if obj is an instance of a_class or its subclasses, False otherwise.
     """
-    return issubclass(type(obj), a_class) and type(obj) is not a_class    
+    return issubclass(type(obj), a_class)
