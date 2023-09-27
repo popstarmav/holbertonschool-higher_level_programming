@@ -6,6 +6,6 @@ Attributes lookup function
 
 def lookup(obj):
     """
-    retrun a list of attribute and method names
+    Return a list of attribute and method names.
     """
-    return dir(obj)
+    return [attr for attr in dir(obj) if not callable(getattr(obj, attr))]
