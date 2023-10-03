@@ -1,30 +1,53 @@
 #!/usr/bin/python3
+"""
+Unittests for the Base class.
+"""
+
 import unittest
-from models.rectangle import Rectangle
+from models.base import Base
 
+class TestBase(unittest.TestCase):
+    """
+    Test cases for the Base class.
+    """
 
-class TestRectangle(unittest.TestCase):
+    def test_init(self):
+        """
+        Test the initialization of the Base class.
+        """
+        b1 = Base()
+        self.assertEqual(b1.id, 1)
 
-    def test_create_rectangle(self):
-        rect = Rectangle(5, 10, 2, 3, 1)
-        self.assertEqual(rect.width, 5)
-        self.assertEqual(rect.height, 10)
-        self.assertEqual(rect.x, 2)
-        self.assertEqual(rect.y, 3)
-        self.assertEqual(rect.id, 1)
+        b2 = Base()
+        self.assertEqual(b2.id, 2)
 
-    def test_width_and_height_exceptions(self):
-        with self.assertRaises(TypeError):
-            Rectangle("invalid", 10, 2, 3, 1)
-        with self.assertRaises(ValueError):
-            Rectangle(-5, 10, 2, 3, 1)
+        b3 = Base(12)
+        self.assertEqual(b3.id, 12)
 
-    def test_x_and_y_exceptions(self):
-        with self.assertRaises(TypeError):
-            Rectangle(5, 10, "invalid", 3, 1)
-        with self.assertRaises(ValueError):
-            Rectangle(5, 10, -2, 3, 1)
+        b4 = Base()
+        self.assertEqual(b4.id, 3)
 
+    def test_to_json_string(self):
+        """
+        Test the to_json_string method.
+        """
+        json_str = Base.to_json_string([])
+        self.assertEqual(json_str, "[]")
 
-if __name__ == '__main__':
+        json_str = Base.to_json_string(None)
+        self.assertEqual(json_str, "[]")
+
+    def test_from_json_string(self):
+        """
+        Test the from_json_string method.
+        """
+        json_str = '[]'
+        lst = Base.from_json_string(json_str)
+        self.assertEqual(lst, [])
+
+        json_str = None
+        lst = Base.from_json_string(json_str)
+        self.assertEqual(lst, [])
+
+if __name__ == "__main__":
     unittest.main()
