@@ -138,9 +138,6 @@ class Rectangle(Base):
             attrs = ['id', 'width', 'height', 'x', 'y']
             for attr, val in zip(attrs, args):
                 setattr(self, attr, val)
-        else:
-            for key, val in kwargs.items():
-                setattr(self, key, val)
 
     def to_dictionary(self):
         """
