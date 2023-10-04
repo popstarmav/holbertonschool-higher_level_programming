@@ -1,15 +1,50 @@
-# Test Cases for BaseGeometry class
+class BaseGeometry:
+    """BaseGeometry class with area() and integer_validator() methods."""
 
-# Create an instance of BaseGeometry
-bg = BaseGeometry()
+    def area(self):
+        """Raise an 'area not implemented' exception."""
+        raise Exception("area() is not implemented")
 
-# Valid integer validation
-bg.integer_validator("my_int", 12)
-bg.integer_validator("width", 89)
+    def integer_validator(self, name, value):
+        """Validate 'value' as an integer greater than 0."""
+        if not isinstance(value, int):
+            raise TypeError(f"{name} must be an integer")
+        if value <= 0:
+            raise ValueError(f"{name} must be greater than 0")
 
-# Invalid integer validation with a string
-bg.integer_validator("name", "John")
+# Define a separate function for testing
+def test_base_geometry():
+    bg = BaseGeometry()
 
-# Invalid integer validation with a value less than or equal to 0
-bg.integer_validator("age", 0)
-bg.integer_validator("distance", -4)
+    # Test area method
+    try:
+        bg.area()
+    except Exception as e:
+        assert str(e) == "area() is not implemented"
+
+    # Test integer_validator method with various cases
+    try:
+        bg.integer_validator("name", "5")
+    except TypeError as e:
+        assert str(e) == "name must be an integer"
+
+    try:
+        bg.integer_validator("name", True)
+    except TypeError as e:
+        assert str(e) == "name must be an integer"
+
+    try:
+        bg.integer_validator("name", -5)
+    except ValueError as e:
+        assert str(e) == "name must be greater than 0"
+
+    try:
+        bg.integer_validator("name", 0)
+    except ValueError as e:
+        assert str(e) == "name must be greater than 0"
+
+    bg.integer_validator("name", 5)
+
+# Run the tests if the script is executed directly
+if __name__ == "__main__":
+    test_base_geometry()
