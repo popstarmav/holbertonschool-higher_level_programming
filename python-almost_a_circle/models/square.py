@@ -1,59 +1,47 @@
 #!/usr/bin/python3
-"""Define Square Class
-"""
 
-from models.rectangle import Rectangle
+class Rectangle:
+    """Rectangle class with width, height, x, and y attributes."""
 
+    def __init__(self, width, height, x=0, y=0, id=None):
+        """Initialize a Rectangle instance.
 
-class Square(Rectangle):
-    """Module Representation of Square
-    """
+        Args:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+            x (int): The x-coordinate of the rectangle.
+            y (int): The y-coordinate of the rectangle.
+            id (int): Optional. The ID of the rectangle.
 
-    def __init__(self, size, x=0, y=0, id=None):
-        """Initialization a Square
+        Attributes:
+            width (int): The width of the rectangle.
+            height (int): The height of the rectangle.
+            x (int): The x-coordinate of the rectangle.
+            y (int): The y-coordinate of the rectangle.
+            id (int): The ID of the rectangle.
+
         """
-        super().__init__(size, size, x, y, id)
-
-    @property
-    def size(self):
-        """Square size getter
-        """
-        return self.width
-
-    @size.setter
-    def size(self, value):
-        """Square size setter
-        """
-        self.width = value
-        self.height = value
-
-    def __str__(self):
-        """String representation of square
-        """
-        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
-                                                         self.x,
-                                                         self.y,
-                                                         self.width)
-
-    def update(self, *args, **kwargs):
-        """Update square attributes
-        """
-        if args:
-            attrs = ['id', 'size', 'x', 'y']
-            for i, arg in enumerate(args):
-                if i < len(attrs):
-                    setattr(self, attrs[i], arg)
+        self.width = width
+        self.height = height
+        self.x = x
+        self.y = y
+        if id is not None:
+            self.id = id
         else:
-            for key, value in kwargs.items():
-                if hasattr(self, key):
-                    setattr(self, key, value)
+            Rectangle.__nb_objects += 1
+            self.id = Rectangle.__nb_objects
 
     def to_dictionary(self):
-        """Return dictionary representation
+        """Return the dictionary representation of a Rectangle.
+
+        Returns:
+            dict: A dictionary containing the attributes of the Rectangle.
+
         """
         return {
             "id": self.id,
-            "size": self.size,
+            "width": self.width,
+            "height": self.height,
             "x": self.x,
-            "y": self.y
+            "y": self.y,
         }
