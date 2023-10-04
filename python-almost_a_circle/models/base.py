@@ -3,7 +3,7 @@
 
 
 class Base:
-    """Base class for managing id attribute in future classes"""
+    """Base class for managing the id attribute in future classes"""
 
     __nb_objects = 0
 
