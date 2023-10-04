@@ -1,4 +1,7 @@
 #!/usr/bin/python3
+# square.py
+from models.rectangle import Rectangle
+
 
 class Square(Rectangle):
     """
@@ -30,7 +33,7 @@ class Square(Rectangle):
 
     def __str__(self):
         """
-            returns a string formart of the square
+            returns a string format of the square
         """
         return "[{}] ({}) {}/{} - {}".format(type(self).__name__, self.id,
                                              self.x, self.y, self.width)

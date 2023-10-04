@@ -2,6 +2,7 @@
 import json
 import csv
 
+
 class Base:
     __nb_objects = 0
 
@@ -80,6 +81,7 @@ class Base:
                 return obj_list
         except FileNotFoundError:
             return []
+
 
 if __name__ == "__main__":
     b1 = Base(12)
