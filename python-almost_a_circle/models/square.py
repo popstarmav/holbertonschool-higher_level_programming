@@ -1,37 +1,47 @@
 #!/usr/bin/python3
-import json
-from models.rectangle import Rectangle
 
 class Square(Rectangle):
+    """
+        class Square inherits from Rectangle.
+    """
     def __init__(self, size, x=0, y=0, id=None):
+        """
+            Initializes the instance of the class.
+        """
         super().__init__(size, size, x, y, id)
 
     @property
     def size(self):
+        """
+            getter function for size
+            Returns: size
+        """
         return self.width
 
     @size.setter
     def size(self, value):
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
+        """
+            setter function for size
+            Args:
+                value (int): value to be set.
+        """
         self.width = value
         self.height = value
 
-    def update(self, *args, **kwargs):
-        if len(args) > 0:
-            attrs = ['id', 'size', 'x', 'y']
-            for attr, val in zip(attrs, args):
-                setattr(self, attr, val)
-        else:
-            for key, val in kwargs.items():
-                setattr(self, key, val)
+    def __str__(self):
+        """
+            returns a string formart of the square
+        """
+        return "[{}] ({}) {}/{} - {}".format(type(self).__name__, self.id,
+                                             self.x, self.y, self.width)
 
     def to_dictionary(self):
+        """
+            returns the dictionary representation of a square
+        """
         return {
             'id': self.id,
-            'size': self.size,
+            'size': self.width,
             'x': self.x,
             'y': self.y
         }
