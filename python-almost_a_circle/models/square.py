@@ -1,155 +1,59 @@
 #!/usr/bin/python3
+"""Define Square Class
 """
-Contains class Rectangle that implements Base.
-"""
-from models.base import Base
+
+from models.rectangle import Rectangle
 
 
-class Rectangle(Base):
-    """
-    Rectangle class that inherits from Base.
+class Square(Rectangle):
+    """Module Representation of Square
     """
 
-    def __init__(self, width, height, x=0, y=0, id=None):
+    def __init__(self, size, x=0, y=0, id=None):
+        """Initialization a Square
         """
-        Initializes the instance of the class.
-        """
-        super().__init__(id)
-        self.width = width
-        self.height = height
-        self.x = x
-        self.y = y
+        super().__init__(size, size, x, y, id)
 
     @property
-    def width(self):
+    def size(self):
+        """Square size getter
         """
-        Getter function for width.
-        Returns: width
-        """
-        return self.__width
+        return self.width
 
-    @width.setter
-    def width(self, value):
+    @size.setter
+    def size(self, value):
+        """Square size setter
         """
-        Setter function for width.
-        Args:
-            value (int): value to be set.
-        """
-        if not isinstance(value, int):
-            raise TypeError("width must be an integer")
-        if value <= 0:
-            raise ValueError("width must be > 0")
-        self.__width = value
-
-    @property
-    def height(self):
-        """
-        Getter function for height.
-        Returns: height
-        """
-        return self.__height
-
-    @height.setter
-    def height(self, value):
-        """
-        Setter function for height.
-        Args:
-            value (int): value to be set.
-        """
-        if not isinstance(value, int):
-            raise TypeError("height must be an integer")
-        if value <= 0:
-            raise ValueError("height must be > 0")
-        self.__height = value
-
-    @property
-    def x(self):
-        """
-        Getter function for x.
-        Returns: x
-        """
-        return self.__x
-
-    @x.setter
-    def x(self, value):
-        """
-        Setter function for x.
-        Args:
-            value (int): value to be set.
-        """
-        if not isinstance(value, int):
-            raise TypeError("x must be an integer")
-        if value < 0:
-            raise ValueError("x must be >= 0")
-        self.__x = value
-
-    @property
-    def y(self):
-        """
-        Getter function for y.
-        Returns: y
-        """
-        return self.__y
-
-    @y.setter
-    def y(self, value):
-        """
-        Setter function for y.
-        Args:
-            value (int): value to be set.
-        """
-        if not isinstance(value, int):
-            raise TypeError("y must be an integer")
-        if value < 0:
-            raise ValueError("y must be >= 0")
-        self.__y = value
-
-    def area(self):
-        """
-        Returns the area of the Rectangle instance.
-        """
-        return self.__width * self.__height
-
-    def display(self):
-        """
-        Prints to stdout the Rectangle instance with '#'.
-        """
-        for _ in range(self.__y):
-            print()
-        for _ in range(self.__height):
-            print(" " * self.__x + "#" * self.__width)
+        self.width = value
+        self.height = value
 
     def __str__(self):
+        """String representation of square
         """
-        Returns a string representation of the rectangle.
-        """
-        return "[Rectangle] ({}) {}/{} - {}/{}".format(
-            self.id, self.__x, self.__y, self.__width, self.__height)
+        return "[Square] ({:d}) {:d}/{:d} - {:d}".format(self.id,
+                                                         self.x,
+                                                         self.y,
+                                                         self.width)
 
     def update(self, *args, **kwargs):
+        """Update square attributes
         """
-        Assigns key/value arguments to attributes.
-        Keyword arguments are skipped if args is not empty.
-        Args:
-            *args: Variable number of non-keyword arguments.
-            **kwargs: Variable number of keyword arguments.
-        """
-        if len(args) > 0:
-            attrs = ['id', 'width', 'height', 'x', 'y']
-            for attr, val in zip(attrs, args):
-                setattr(self, attr, val)
+        if args:
+            attrs = ['id', 'size', 'x', 'y']
+            for i, arg in enumerate(args):
+                if i < len(attrs):
+                    setattr(self, attrs[i], arg)
         else:
-            for key, val in kwargs.items():
-                setattr(self, key, val)
+            for key, value in kwargs.items():
+                if hasattr(self, key):
+                    setattr(self, key, value)
 
     def to_dictionary(self):
-        """
-        Returns the dictionary representation of a Rectangle.
+        """Return dictionary representation
         """
         return {
-            'id': self.id,
-            'width': self.__width,
-            'height': self.__height,
-            'x': self.__x,
-            'y': self.__y
+            "id": self.id,
+            "size": self.size,
+            "x": self.x,
+            "y": self.y
         }
