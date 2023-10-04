@@ -1,50 +1,84 @@
 class BaseGeometry:
-    """BaseGeometry class with area() and integer_validator() methods."""
+    """
+    BaseGeometry class with area() and integer_validator() methods.
+
+    >>> bg = BaseGeometry()
+    >>> bg.area()
+    Traceback (most recent call last):
+        ...
+    Exception: area() is not implemented
+
+    >>> bg.integer_validator("name", "5")
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+    >>> bg.integer_validator("name", True)
+    Traceback (most recent call last):
+        ...
+    TypeError: name must be an integer
+
+    >>> bg.integer_validator("name", -5)
+    Traceback (most recent call last):
+        ...
+    ValueError: name must be greater than 0
+
+    >>> bg.integer_validator("name", 0)
+    Traceback (most recent call last):
+        ...
+    ValueError: name must be greater than 0
+
+    >>> bg.integer_validator("name", 5)
+    
+    """
 
     def area(self):
-        """Raise an 'area not implemented' exception."""
+        """
+        Calculate the area (not implemented).
+        """
         raise Exception("area() is not implemented")
 
     def integer_validator(self, name, value):
-        """Validate 'value' as an integer greater than 0."""
+        """
+        Validate 'value' as an integer greater than 0.
+        
+        Args:
+            name (str): Name of the value being validated.
+            value (int): The value to be validated.
+        
+        Raises:
+            TypeError: If 'value' is not an integer.
+            ValueError: If 'value' is less than or equal to 0.
+        
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("age", (4,))
+        Traceback (most recent call last):
+            ...
+        TypeError: age must be an integer
+
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("age", [3])
+        Traceback (most recent call last):
+            ...
+        TypeError: age must be an integer
+
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("age", {3, 4})
+        Traceback (most recent call last):
+            ...
+        TypeError: age must be an integer
+
+        >>> bg = BaseGeometry()
+        >>> bg.integer_validator("age", None)
+        Traceback (most recent call last):
+            ...
+        TypeError: age must be an integer
+        """
         if not isinstance(value, int):
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
 
-# Define a separate function for testing
-def test_base_geometry():
-    bg = BaseGeometry()
-
-    # Test area method
-    try:
-        bg.area()
-    except Exception as e:
-        assert str(e) == "area() is not implemented"
-
-    # Test integer_validator method with various cases
-    try:
-        bg.integer_validator("name", "5")
-    except TypeError as e:
-        assert str(e) == "name must be an integer"
-
-    try:
-        bg.integer_validator("name", True)
-    except TypeError as e:
-        assert str(e) == "name must be an integer"
-
-    try:
-        bg.integer_validator("name", -5)
-    except ValueError as e:
-        assert str(e) == "name must be greater than 0"
-
-    try:
-        bg.integer_validator("name", 0)
-    except ValueError as e:
-        assert str(e) == "name must be greater than 0"
-
-    bg.integer_validator("name", 5)
-
-# Run the tests if the script is executed directly
 if __name__ == "__main__":
-    test_base_geometry()
+    import doctest
+    doctest.testmod()
