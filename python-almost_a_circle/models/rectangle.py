@@ -1,8 +1,3 @@
-#!/usr/bin/python3
-"""
-Contains class Rectangle that implements Base.
-"""
-
 import json
 from models.base import Base
 
@@ -150,22 +145,8 @@ class Rectangle(Base):
         """
         return {
             'id': self.id,
-            'width': self.__width,
-            'height': self.__height,
-            'x': self.__x,
-            'y': self.__y
+            'width': self.width,
+            'height': self.height,
+            'x': self.x,
+            'y': self.y
         }
-
-    @classmethod
-    def from_json_string(cls, json_string):
-        """Return a list of dictionaries from a JSON string."""
-        if json_string is None or json_string == "":
-            return []
-        return json.loads(json_string)
-
-    @staticmethod
-    def to_json_string(list_dictionaries):
-        """Return the JSON string representation of a list of dictionaries."""
-        if list_dictionaries is None or len(list_dictionaries) == 0:
-            return "[]"
-        return json.dumps(list_dictionaries)
