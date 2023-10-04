@@ -1,45 +1,43 @@
 #!/usr/bin/python3
 """
-Unittests for the Square class.
+Contains class Square that inherits from Rectangle.
 """
-
-import unittest
-from models.square import Square
+from models.rectangle import Rectangle
 
 
-class TestSquare(unittest.TestCase):
+class Square(Rectangle):
     """
-    Test cases for the Square class.
+    Class Square inherits from Rectangle.
     """
 
-    def test_init(self):
+    def __init__(self, size, x=0, y=0, id=None):
         """
-        Test the initialization of the Square class.
+        Initializes the instance of the class.
         """
-        s1 = Square(5)
-        self.assertEqual(s1.size, 5)
-        self.assertEqual(s1.x, 0)
-        self.assertEqual(s1.y, 0)
-        self.assertEqual(s1.id, 1)
+        super().__init__(size, size, x, y, id)
 
-        s2 = Square(3, 2, 3, 10)
-        self.assertEqual(s2.size, 3)
-        self.assertEqual(s2.x, 2)
-        self.assertEqual(s2.y, 3)
-        self.assertEqual(s2.id, 10)
-
-    def test_str(self):
+    @property
+    def size(self):
         """
-        Test the __str__ method of Square.
+        Getter function for size.
+        Returns: size
         """
-        s1 = Square(4)
-        str_output = "[Square] (1) 0/0 - 4"
-        self.assertEqual(str(s1), str_output)
+        return self.width
 
-        s2 = Square(5, 1, 2, 8)
-        str_output = "[Square] (8) 1/2 - 5"
-        self.assertEqual(str(s2), str_output)
+    @size.setter
+    def size(self, value):
+        """
+        Setter function for size.
+        Args:
+            value (int): value to be set.
+        """
+        self.width = value
+        self.height = value
 
+    def __str__(self):
+        """
+        Returns a string representation of the square.
+        """
+        return "[Square] ({}) {}/{} - {}".format(
+            self.id, self.x, self.y, self.width)
 
-if __name__ == "__main__":
-    unittest.main()
