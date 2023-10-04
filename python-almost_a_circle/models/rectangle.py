@@ -36,7 +36,7 @@ class Rectangle(Base):
             Args:
                 value (int): value to be set.
         """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("width must be an integer")
         if value <= 0:
             raise ValueError("width must be > 0")
@@ -58,7 +58,7 @@ class Rectangle(Base):
             Args:
                 value (int): value to be set.
         """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("height must be an integer")
         if value <= 0:
             raise ValueError("height must be > 0")
@@ -80,7 +80,7 @@ class Rectangle(Base):
             Args:
                 value (int): value to be set.
         """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("x must be an integer")
         if value < 0:
             raise ValueError("x must be >= 0")
@@ -102,7 +102,7 @@ class Rectangle(Base):
             Args:
                 value (int): value to be set.
         """
-        if type(value) != int:
+        if not isinstance(value, int):
             raise TypeError("y must be an integer")
         if value < 0:
             raise ValueError("y must be >= 0")
@@ -113,7 +113,7 @@ class Rectangle(Base):
         """
             returns the area of the Rectangle instance.
         """
-        return (self.__width * self.__height)
+        return self.__width * self.__height
 
     def display(self):
         """
@@ -125,7 +125,7 @@ class Rectangle(Base):
         print("\n" * self.y, end="")
 
         for i in range(self.height):
-            rectangle += (" " * self.x) + (print_symbol*self.width) + "\n"
+            rectangle += (" " * self.x) + (print_symbol * self.width) + "\n"
         print(rectangle, end="")
 
     def __str__(self):
