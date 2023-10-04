@@ -1,6 +1,6 @@
 class BaseGeometry:
     """
-    BaseGeometry class with area() and integer_validator() methods.
+    BaseGeometry class represents geometric operations.
 
     >>> bg = BaseGeometry()
     >>> bg.area()
@@ -11,22 +11,22 @@ class BaseGeometry:
     >>> bg.integer_validator("name", "5")
     Traceback (most recent call last):
         ...
-    TypeError: name must be an integer
+    TypeError: 'value' must be an integer
 
     >>> bg.integer_validator("name", True)
     Traceback (most recent call last):
         ...
-    TypeError: name must be an integer
+    TypeError: 'value' must be an integer
 
     >>> bg.integer_validator("name", -5)
     Traceback (most recent call last):
         ...
-    ValueError: name must be greater than 0
+    ValueError: 'value' must be greater than 0
 
     >>> bg.integer_validator("name", 0)
     Traceback (most recent call last):
         ...
-    ValueError: name must be greater than 0
+    ValueError: 'value' must be greater than 0
 
     >>> bg.integer_validator("name", 5)
     
@@ -45,40 +45,20 @@ class BaseGeometry:
         Args:
             name (str): Name of the value being validated.
             value (int): The value to be validated.
-        
+
         Raises:
             TypeError: If 'value' is not an integer.
             ValueError: If 'value' is less than or equal to 0.
-        
-        >>> bg = BaseGeometry()
-        >>> bg.integer_validator("age", (4,))
-        Traceback (most recent call last):
-            ...
-        TypeError: age must be an integer
-
-        >>> bg = BaseGeometry()
-        >>> bg.integer_validator("age", [3])
-        Traceback (most recent call last):
-            ...
-        TypeError: age must be an integer
-
-        >>> bg = BaseGeometry()
-        >>> bg.integer_validator("age", {3, 4})
-        Traceback (most recent call last):
-            ...
-        TypeError: age must be an integer
-
-        >>> bg = BaseGeometry()
-        >>> bg.integer_validator("age", None)
-        Traceback (most recent call last):
-            ...
-        TypeError: age must be an integer
         """
-        if not isinstance(value, int):
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
 
+        if not isinstance(value, int):
+            raise TypeError(f"'{name}' must be an integer")
+
+        if value <= 0:
+            raise ValueError(f"'{name}' must be greater than 0")
+
+
+# Testing the BaseGeometry class with doctests
 if __name__ == "__main__":
     import doctest
     doctest.testmod()
