@@ -1,15 +1,27 @@
 #!/usr/bin/python3
+"""Module for Square class."""
 
-class BaseGeometry:
-    """BaseGeometry class with area() and integer_validator() methods."""
+Rectangle = __import__('9-rectangle').Rectangle
+
+class Square(Rectangle):
+    """A class representing a square."""
+
+    def __init__(self, size):
+        """
+        Initialize a Square instance.
+
+        Args:
+            size (int): The size (side length) of the square.
+        """
+        super().__init__(size, size)
+        self.__size = size
+        self.integer_validator("size", size)
 
     def area(self):
-        """Raise an 'area not implemented' exception."""
-        raise Exception("area() is not implemented")
+        """Calculate the area of the square."""
+        return self.__size * self.__size
 
-    def integer_validator(self, name, value):
-        """Validate 'value' as an integer."""
-        if not isinstance(value, int):
-            raise TypeError(f"{name} must be an integer")
-        if value <= 0:
-            raise ValueError(f"{name} must be greater than 0")
+    def __str__(self):
+        """Return a string representation of the square."""
+        return "[Square] {}/{}".format(self.__size, self.__size)
+
