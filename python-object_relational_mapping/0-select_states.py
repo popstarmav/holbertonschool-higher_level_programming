@@ -4,25 +4,38 @@
 import MySQLdb
 import sys
 
-if __name__ == "__main__":
-    # Connect to the MySQL database
-    db = MySQLdb.connect(
-        host="localhost",
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3],
-        port=3306
-    )
-    cursor = db.cursor()
+def list_states(username, password, database):
+    """List all states from the database.
 
-    # Execute the SQL query to fetch all states
-    cursor.execute("SELECT * FROM states")
+    Args:
+        username (str): MySQL username
+        password (str): MySQL password
+        database (str): MySQL database name
+    """
+    try:
+        # Connect to the MySQL database
+        db = MySQLdb.connect(
+            host="localhost",
+            user=sys.argv[1],
+            passwd=sys.argv[2],
+            db=sys.argv[3],
+            port=3306
+        )
+        cursor = db.cursor()
 
-    # Fetch and print the results
-    rows = cursor.fetchall()
-    for row in rows:
-        print(row)
+        # Execute the SQL query to fetch all states
+        cursor.execute("SELECT * FROM states")
 
-    # Close the cursor and the database connection
-    cursor.close()
-    db.close()
+        # Fetch and print the results
+        rows = cursor.fetchall()
+        for row in rows:
+            print(row)
+
+
+    except MySQLdb.Error as e:
+        print(f"Error: {e}")
+
+    finally:
+        # Close the cursor and the database connection
+        cursor.close()
+        db.close()
