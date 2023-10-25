@@ -1,6 +1,3 @@
-#!/usr/bin/python3
-
-
 import MySQLdb
 import sys
 
@@ -15,8 +12,8 @@ if __name__ == "__main__":
     )
 
     cur = db.cursor()
-    cur.execute("SELECT * FROM states")
-    rows = cur.fetchall()
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    data = cursor.fetchall()
     for row in rows:
         print(row)
     cur.close()
