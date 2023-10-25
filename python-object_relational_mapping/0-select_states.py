@@ -12,35 +12,32 @@ def list_states(username, password, database):
         password (str): MySQL password
         database (str): MySQL database name
     """
-
-try:
+    try:
         # Connect to MySQL server
-        conn = MySQLdb.connect(
+        db = MySQLdb.connect(
             host="localhost",
             port=3306,
             user=username,
             passwd=password,
             db=database
         )
-        cursor = conn.cursor()
+        cursor = db.cursor()
 
         # Execute the SQL query to fetch all states sorted by ID
         cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-        # Fetch and print the results
-        rows = cursor.fetchall()
-        for row in rows:
-            print(row)
+        results = cursor.fetchall()
+        for state in results:
+            print(state)
+
+        cursor.close()
+        db.close()
 
     except MySQLdb.Error as e:
         print(f"Error: {e}")
 
-    finally:
-        # Close the cursor and the database connection
-        cursor.close()
-        conn.close()
+if __name__ == '__main__':
+    if len(sys.argv) == 4:
+        username, password, database = sys.argv[1:4]
+        list_states(username, password, database_name)
 
-
-if __name__ == '__main__' and len(sys.argv) == 4:
-    username, password, database = sys.argv[1:4]
-    list_states(username, password, database)
