@@ -35,3 +35,8 @@ if __name__ == "__main__":
     # Close the cursor and the database connection
     cur.close()
     conn.close()
+
+
+if __name__ == '__main__' and len(sys.argv) == 4:
+    username, password, database = sys.argv[1:4]
+    list_states(username, password, database)
