@@ -1,40 +1,21 @@
 #!/usr/bin/python3
-"""Lists all states from the database hbtn_0e_0_usa."""
-
+# List all states starting with 'N' from the hbtn_0e_0_usa database
 import sys
 import MySQLdb
 
 if __name__ == "__main__":
-    if len(sys.argv) != 4:
-        print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
-        sys.exit(1)
-
-    username, password, database_name = sys.argv[1], sys.argv[2], sys.argv[3]
-
-    try:
-        # Connect to the MySQL database
-        db = MySQLdb.connect(
-            host="localhost",
-            user=username,
-            passwd=password,
-            db=database_name,
-            port=3306
-        )
-
-        # Create a cursor object to interact with the database
-        cursor = db.cursor()
-
-        # Execute an SQL query to select all states and sort by states.id
-        cursor.execute("SELECT * FROM states ORDER BY id ASC")
-
-        # Fetch and print the results
-        states = cursor.fetchall()
-        for state in states:
-            print(state)
-
-    except MySQLdb.Error as e:
-        print("MySQL Error:", e)
-
-    finally:
-        if 'db' in locals() and db:
-            db.close()
+    db = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=sys.argv[1],
+        passwd=sys.argv[2],
+        db=sys.argv[3]
+    )
+    cursor = db.cursor()
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    states = cursor.fetchall()
+    for i in range(len(states)):
+        if states[i][1][0] == "N":
+            print(states[i])
+    cursor.close()
+    db.close()
