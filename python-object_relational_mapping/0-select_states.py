@@ -1,21 +1,37 @@
 #!/usr/bin/python3
-# List all states starting with 'N' from the hbtn_0e_0_usa database
 import sys
 import MySQLdb
 
 if __name__ == "__main__":
+    # Check if all 3 arguments are provided
+    if len(sys.argv) != 4:
+        print("Usage: {} <username> <password> <database>".format(sys.argv[0]))
+        sys.exit(1)
+
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    # Connect to the MySQL server on localhost at port 3306
     db = MySQLdb.connect(
         host="localhost",
         port=3306,
-        user=sys.argv[1],
-        passwd=sys.argv[2],
-        db=sys.argv[3]
+        user=username,
+        passwd=password,
+        db=database
     )
+
     cursor = db.cursor()
+
+    # Execute the SQL query to select all states and order them by id
     cursor.execute("SELECT * FROM states ORDER BY id ASC")
+
+    # Fetch all the results
     states = cursor.fetchall()
-    for i in range(len(states)):
-        if states[i][1][0] == "N":
-            print(states[i])
+
+    # Display the results
+    for state in states:
+        print(state)
+
     cursor.close()
     db.close()
