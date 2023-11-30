@@ -1,8 +1,10 @@
 #!/usr/bin/node
-const validRectangle = new Rectangle(5, 3);
-console.log(validRectangle.width);  // Output: 5
-console.log(validRectangle.height); // Output: 3
 
-const invalidRectangle = new Rectangle(0, 4);
-console.log(invalidRectangle.width);  // Output: null
-console.log(invalidRectangle.height); // Output: null
+class Rectangle {
+  constructor(width, height) {
+    this.width = width > 0 ? width : null;
+    this.height = height > 0 ? height : null;
+  }
+}
+
+module.exports = Rectangle;
