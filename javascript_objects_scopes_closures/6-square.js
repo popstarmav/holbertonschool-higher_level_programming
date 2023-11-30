@@ -1,10 +1,10 @@
 #!/usr/bin/node
 class Square {
-  constructor(size) {
+  constructor (size) {
     this.size = size;
   }
 
-  charPrint(c) {
+  charPrint (c) {
     if (c === undefined) {
       c = 'X';
     }

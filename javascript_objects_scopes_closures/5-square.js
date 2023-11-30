@@ -1,11 +1,11 @@
 #!/usr/bin/node
 
 class Shape {
-  constructor(sideLength) {
+  constructor (sideLength) {
     this.sideLength = sideLength;
   }
 
-  print() {
+  print () {
     if (this.sideLength !== null) {
       for (let i = 0; i < this.sideLength; i++) {
         console.log('X'.repeat(this.sideLength));
@@ -13,7 +13,7 @@ class Shape {
     }
   }
 
-  double() {
+  double () {
     if (this.sideLength !== null) {
       this.sideLength *= 2;
     }
