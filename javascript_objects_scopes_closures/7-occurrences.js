@@ -1,8 +1,8 @@
 #!/usr/bin/node
 
-function nbOccurences(list, searchElement) {
+function nbOccurences (list, searchElement) {
   let nOccurrences = 0;
-  for (let element of list) {
+  for (const element of list) {
     if (searchElement === element) {
       nOccurrences++;
     }
