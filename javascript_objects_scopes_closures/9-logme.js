@@ -2,7 +2,7 @@
 
 let narg = 0;
 
-function logMe(item) {
+function logMe (item) {
   console.log(`${narg}: ${item}`);
   narg++;
 }
