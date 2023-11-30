@@ -1,6 +1,6 @@
 #!/usr/bin/node
 
-function esrever(list) {
+function esrever (list) {
   let start = 0;
   let end = list.length - 1;
 
