@@ -18,3 +18,12 @@ fs.writeFile(filePath, contentToWrite, 'utf-8', (error) => {
     console.log(`Content successfully written to ${filePath}`);
   }
 });
+
+// Read the content of the file to verify the output
+fs.readFile(filePath, 'utf-8', (readError, readData) => {
+  if (readError) {
+    console.error(`Error reading the file: ${readError}`);
+  } else {
+    console.log('Correct output - text:', JSON.stringify(readData));
+  }
+});
