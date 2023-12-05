@@ -3,7 +3,7 @@ const fs = require('fs');
 
 // Check if the correct number of arguments is provided
 if (process.argv.length !== 3) {
-  console.error('Usage: node 0-readme.js <file-path>');
+  console.error('Usage: ./0-readme.js <file-path>');
   process.exit(1); // Exit with an error code
 }
 
